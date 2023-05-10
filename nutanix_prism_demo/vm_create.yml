@@ -11,7 +11,7 @@
 
     - name: Retrieve Information of Golden Image
       uri:
-        url: "https://{{ prism }}:9440/api/nutanix/v3/images/list"
+        url: "https://{{ prism }}:{{ port }}/api/nutanix/v3/images/list"
         user: "{{ prism_user }}"
         password: "{{ prism_password }}"
         method: POST
@@ -31,7 +31,7 @@
 
     - name: Retrieve Information for Subnet
       uri:
-        url: "https://{{ prism }}:9440/api/nutanix/v3/subnets/list"
+        url: "https://{{ prism }}:{{ port }}/api/nutanix/v3/subnets/list"
         user: "{{ prism_user }}"
         password: "{{ prism_password }}"
         method: POST
@@ -51,7 +51,7 @@
 
     - name: Retrieve Information of Cluster
       uri:
-        url: "https://{{ prism }}:9440/api/nutanix/v3/clusters/list"
+        url: "https://{{ prism }}:{{ port }}/api/nutanix/v3/clusters/list"
         user: "{{ prism_user }}"
         password: "{{ prism_password }}"
         method: POST
@@ -71,7 +71,7 @@
 
     - name: Create VM
       uri:
-        url: "https://{{ prism }}:9440/api/nutanix/v3/vms"
+        url: "https://{{ prism }}:{{ port }}/api/nutanix/v3/vms"
         user: "{{ prism_user }}"
         password: "{{ prism_password }}"
         method: POST
@@ -91,7 +91,7 @@
     # the conditional checks will need to be updated/changed accordingly.
     - name: Get VM Atttributes
       uri:
-        url: "https://{{ prism }}:9440/api/nutanix/v3/vms/{{ vm_creation.json.metadata.uuid }}"
+        url: "https://{{ prism }}:{{ port }}/api/nutanix/v3/vms/{{ vm_creation.json.metadata.uuid }}"
         user: "{{ prism_user }}"
         password: "{{ prism_password }}"
         method: GET
